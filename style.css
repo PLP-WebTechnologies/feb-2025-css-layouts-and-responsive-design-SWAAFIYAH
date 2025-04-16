@@ -1,0 +1,144 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation Bar - Flexbox */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4CAF50;
+}
+
+/* Main Content - CSS Grid */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    grid-column: 1 / -1;
+    background-color: #4CAF50;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.card {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.footer {
+    grid-column: 1 / -1;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+/* Media Queries */
+/* Tablet */
+@media (min-width: 600px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .navbar {
+        padding: 1rem 3rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .header {
+        grid-column: 1 / -1;
+    }
+    
+    .featured {
+        grid-column: span 2;
+    }
+    
+    .navbar {
+        padding: 1rem 5rem;
+    }
+}
+
+/* Mobile - Hamburger Menu */
+@media (max-width: 599px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}
